@@ -56,10 +56,14 @@
                     <!--Left Alignment-->
                     <ul class="nav navbar-nav">
                         <li>
-                            <a>Profile</a>
+                            <a href="{{ path('profile') }}" class="navbar-brand">
+                                Profile
+                            </a>
                         </li>
                         <li>
-                            <a>View something</a>
+                            <a href="{{ path('overview') }}" class="navbar-brand">
+                                Overview
+                            </a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -74,13 +78,19 @@
                     <!--Right Alignment-->
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a>Register</a>
+                            <a href="{{ path('register') }}" class="navbar-brand">
+                                Register
+                            </a>
                         </li>
                         <li>
-                            <a>Login</a>
+                            <a href="{{ path('login') }}" class="navbar-brand">
+                                Login
+                            </a>
                         </li>
                         <li>
-                            <a>Logout</a>
+                            <a href="/" class="navbar-brand">
+                                Logout
+                            </a>
                         </li>
                     </ul>
 
@@ -101,29 +111,30 @@
 {#TODO:Footer configuration#}
 {% block footer %}
     <footer>
-        <div class="container modal-footer">
+        <nav class="navbar navbar-inverse">
+            <div class="container modal-footer">
 
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="{{ path('support') }}" class="navbar-brand">
-                        Support
-                    </a>
-                </li>
-                {#<li>#}
-                    {#<a href="{{ path('Rules') }}" class="navbar-brand">#}
-                        {#Rules#}
-                    {#</a>#}
-                {#</li>#}
-            </ul>
-            {#<ul class="nav navbar-nav">#}
-                {#<li>#}
-                    {#<a href="{{ path('about') }}" class="navbar-brand">#}
-                        {#&copy; 2017 - Xel'Selenius Enterprise#}
-                    {#</a>#}
-                {#</li>#}
-            {#</ul>#}
-        </div>
-
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{ path('support') }}" class="navbar-brand">
+                            Support
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('rules') }}" class="navbar-brand">
+                            Rules
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ path('about') }}" class="navbar-brand">
+                            &copy; 2017 - Xel'Selenius Enterprise
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         {#---------------------------------------------------------------------------#}
         {#            If more things are needed in FOOTER they go below              #}
         {#---------------------------------------------------------------------------#}

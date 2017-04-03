@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class PlanetController extends Controller
 {
     /**
-     * @Route("/overview")
+     * @Route("/overview", name="overview")
     */
     public function PlanetOverview()
     {
