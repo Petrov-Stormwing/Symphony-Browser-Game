@@ -40,7 +40,7 @@
 
                 <!--Logo-->
                 <div class="navbar-header">
-                    <a href="" class="navbar-brand">XELSELENIUS ENTERPRISE</a>
+                    <a href="/" class="navbar-brand">XELSELENIUS ENTERPRISE</a>
 
                     <!--Collapse Menu Button-->
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
@@ -94,7 +94,7 @@
 {#TODO:View configuration#}
 <main>
     {% block main %}
-        Here should go the stuff from fragments
+        Here should go the stuff from the different views
     {% endblock %}
 </main>
 
@@ -102,15 +102,26 @@
 {% block footer %}
     <footer>
         <div class="container modal-footer">
-            <p>&copy; 2017 - Xel'Selenius Enterprise</p>
 
-            <a class="navbar-brand">SOFTUNI BLOG</a>
-            {% if app.user %}
-                <a href="{{ path('article_create') }}" class="navbar-brand">
-                    Create Article
-                </a>
-            {% endif %}
-            <p> Support </p>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{{ path('support') }}" class="navbar-brand">
+                        Support
+                    </a>
+                </li>
+                {#<li>#}
+                    {#<a href="{{ path('Rules') }}" class="navbar-brand">#}
+                        {#Rules#}
+                    {#</a>#}
+                {#</li>#}
+            </ul>
+            {#<ul class="nav navbar-nav">#}
+                {#<li>#}
+                    {#<a href="{{ path('about') }}" class="navbar-brand">#}
+                        {#&copy; 2017 - Xel'Selenius Enterprise#}
+                    {#</a>#}
+                {#</li>#}
+            {#</ul>#}
         </div>
 
         {#---------------------------------------------------------------------------#}
