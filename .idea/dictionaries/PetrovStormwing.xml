@@ -2,6 +2,7 @@
   <dictionary name="PetrovStormwing">
     <words>
       <w>datetimepicker</w>
+      <w>dropdown</w>
       <w>navbar</w>
       <w>selenius</w>
       <w>symfony</w>

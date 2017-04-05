@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+
     {#Favicon#}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
@@ -40,7 +41,9 @@
 
                 <!--Logo-->
                 <div class="navbar-header">
-                    <a href="/" class="navbar-brand">XELSELENIUS ENTERPRISE</a>
+                    <a href="{{ path('home') }}" class="navbar-brand">
+                        XELSELENIUS ENTERPRISE
+                    </a>
 
                     <!--Collapse Menu Button-->
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
@@ -65,6 +68,21 @@
                                 Overview
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ path('buildings') }}" class="navbar-brand">
+                                Buildings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('shipyard') }}" class="navbar-brand">
+                                Shipyard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fleet') }}" class="navbar-brand">
+                                Fleet
+                            </a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">Admin<span
@@ -75,6 +93,7 @@
                             </ul>
                         </li>
                     </ul>
+
                     <!--Right Alignment-->
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -93,27 +112,26 @@
                             </a>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </nav>
     </header>
 {% endblock %}
 
-
-{#TODO:View configuration#}
 <main>
     {% block main %}
-        Here should go the stuff from the different views
+        {#---------------------------------------------------------------------------#}
+        {#   -|==>    Here should go the stuff from the different views       <==|-  #}
+        {#---------------------------------------------------------------------------#}
     {% endblock %}
 </main>
 
-{#TODO:Footer configuration#}
 {% block footer %}
     <footer>
         <nav class="navbar navbar-inverse">
             <div class="container modal-footer">
 
+                //
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="{{ path('support') }}" class="navbar-brand">
