@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+    <div>
+        {#Title#}
+        <h1> Log In</h1>
+
+        {#notification service goes here#}
+        {#TODO: notification service#}
+    </div>
+
+    <form method="post">
+        Username: <input title="" type="text" name="_username"/><br/>
+        Password: <input title="" type="password" name="_password"/><br/>
+        {#<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>#}
+        <input type="submit" value="Login!">
+    </form>
+
+{% endblock %}

@@ -5,12 +5,12 @@ namespace XelSeleniusBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Planets
+ * Planet
  *
  * @ORM\Table(name="planets")
  * @ORM\Entity(repositoryClass="XelSeleniusBundle\Repository\PlanetsRepository")
  */
-class Planets
+class Planet
 {
     /**
      * @var int
@@ -85,7 +85,7 @@ class Planets
      *
      * @param string $atmosphere
      *
-     * @return Planets
+     * @return Planet
      */
     public function setAtmosphere($atmosphere)
     {
@@ -109,7 +109,7 @@ class Planets
      *
      * @param integer $size
      *
-     * @return Planets
+     * @return Planet
      */
     public function setSize($size)
     {
@@ -133,7 +133,7 @@ class Planets
      *
      * @param array $buildings
      *
-     * @return Planets
+     * @return Planet
      */
     public function setBuildings($buildings)
     {
@@ -157,7 +157,7 @@ class Planets
      *
      * @param array $ships
      *
-     * @return Planets
+     * @return Planet
      */
     public function setShips($ships)
     {

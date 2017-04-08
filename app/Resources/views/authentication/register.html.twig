@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div>
+        <h1>Register</h1>
+        {#notifications goes here#}
+        {#TODO:notifications#}
+    </div>
+
+    {#form generator#}
+    <div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Register!"/>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
