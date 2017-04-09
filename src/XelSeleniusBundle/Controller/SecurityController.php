@@ -15,4 +15,12 @@ class SecurityController extends Controller
     {
         return $this->render('authentication/login.html.twig');
     }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout()
+    {
+//        TODO: notification you are loged out!
+    }
 }
