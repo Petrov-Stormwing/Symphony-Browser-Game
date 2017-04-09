@@ -2,6 +2,7 @@
 
 namespace XelSeleniusBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -44,10 +45,16 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="dark_energy", type="integer")
+     * @var Role[]|ArrayCollection
+     * @ORM\ManyToMany(targetEntity="XelSeleniusBundle\Entity\Role",inversedBy="users")
+     * @ORM\JoinTable(name="user_roles", joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}, inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")})
      */
+    private $roles;
+
+    public function __construct()
+    {
+        $this->roles=new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -149,7 +156,15 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return ['ROLE_USER'];
+//        $roles=$this->roles;
+//        $rolesString=array();
+//        foreach ($roles as $role){
+//            $name=$role->getName();
+//            $rolesString=$name;
+//        }
+//
+//        return $rolesString;
+        return array_map(function (Role $role){ return $role->getName();},$this->roles->toArray());
     }
 
     /**
@@ -173,6 +188,11 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    public function addRole(Role $role)
+    {
+        $this->roles->add($role);
     }
 }
 

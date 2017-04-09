@@ -129,28 +129,39 @@
 {% block footer %}
     <footer>
         <nav class="navbar navbar-inverse">
-            <div class="container modal-footer">
+            <div class="container-fluid">
 
-                //
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="{{ path('support') }}" class="navbar-brand">
-                            Support
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('rules') }}" class="navbar-brand">
-                            Rules
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="{{ path('about') }}" class="navbar-brand">
-                            &copy; 2017 - Xel'Selenius Enterprise
-                        </a>
-                    </li>
-                </ul>
+                <!--Logo-->
+                <div class="navbar-header">
+                    <a href="{{ path('about') }}" class="navbar-brand">
+                        &copy; 2017 - Xel'Selenius Enterprise
+                    </a>
+
+                    <!--Collapse Menu Button-->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!--Menu Items-->
+                <div class="collapse navbar-collapse" id="mainNavBar">
+
+                    {#footer right#}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{{ path('support') }}" class="navbar-brand">
+                                Support
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('rules') }}" class="navbar-brand">
+                                Rules
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
         {#---------------------------------------------------------------------------#}

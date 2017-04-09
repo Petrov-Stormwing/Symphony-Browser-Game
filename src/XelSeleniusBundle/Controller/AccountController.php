@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
 use Symfony\Component\HttpFoundation\Request;
+use XelSeleniusBundle\Entity\Role;
 use XelSeleniusBundle\Entity\User;
 use XelSeleniusBundle\Form\UserRegistration;
 
@@ -37,14 +38,17 @@ class AccountController extends Controller
         $form->handleRequest($request);
         $encoder = $this->get('security.password_encoder');
         if ($form->isSubmitted()) {
-
+            //Encrypting password
             $encryptedPassword = $encoder->encodePassword(
                 $user,
                 $user->getPassword()
             );
-
             $user->setPassword($encryptedPassword);
 
+            //Setting role
+            $userRole=$this->getDoctrine()->getRepository(Role::class)
+                ->findOneBy(['name'=>'ROLE_USER']);
+            $user->addRole($userRole);
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
