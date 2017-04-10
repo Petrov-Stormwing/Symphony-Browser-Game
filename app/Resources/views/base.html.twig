@@ -7,9 +7,9 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
 
     {#Bootstrap included here#}
+    <script src="{{ asset('js/jquery-3.2.0.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/bootstrap-datetimepicker.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.2.0.js') }}"></script>
     <script src="{{ asset('js/moment.js') }}"></script>
 
     {#Stylesheets included here#}
@@ -33,7 +33,7 @@
 {#TODO:Header configuration#}
 {% block header %}
     <header>
-        <div class="container-fluid">
+        <div>
             <img src="{{ asset('img/headingPicture.jpg') }}" class="img-responsive" width="100%">
         </div>
         <nav class="navbar navbar-inverse">
@@ -126,8 +126,9 @@
     {% endblock %}
 </main>
 
+<footer class="footer">
 {% block footer %}
-    <footer>
+
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
 
@@ -168,8 +169,8 @@
         {#            If more things are needed in FOOTER they go below              #}
         {#---------------------------------------------------------------------------#}
 
-    </footer>
 {% endblock %}
+</footer>
 
 {#TODO:Scripts inclusion#}
 {% block javascripts %}{% endblock %}
