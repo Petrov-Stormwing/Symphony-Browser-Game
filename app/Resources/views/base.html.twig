@@ -118,7 +118,7 @@
     </header>
 {% endblock %}
 
-<main>
+<main id="wrap">
     {% block main %}
         {#---------------------------------------------------------------------------#}
         {#   -|==>    Here should go the stuff from the different views       <==|-  #}
@@ -126,7 +126,7 @@
     {% endblock %}
 </main>
 
-<footer class="footer">
+<footer id="footer">
 {% block footer %}
 
         <nav class="navbar navbar-inverse">
@@ -152,7 +152,7 @@
                     {#footer right#}
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="{{ path('support') }}" class="navbar-brand">
+                            <a href="{{ path('support_form') }}" class="navbar-brand">
                                 Support
                             </a>
                         </li>

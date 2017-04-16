@@ -5,6 +5,7 @@ namespace XelSeleniusBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -25,21 +26,21 @@ class User implements UserInterface
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="username", type="string", length=255, unique=true)
      */
     private $username;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;
@@ -51,9 +52,17 @@ class User implements UserInterface
      */
     private $roles;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="XelSeleniusBundle\Entity\SupportTicket", mappedBy="user")
+     */
+    private $supportTickets;
+
     public function __construct()
     {
         $this->roles=new ArrayCollection();
+        $this->supportTickets=new ArrayCollection();
     }
 
     /**
@@ -156,14 +165,6 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-//        $roles=$this->roles;
-//        $rolesString=array();
-//        foreach ($roles as $role){
-//            $name=$role->getName();
-//            $rolesString=$name;
-//        }
-//
-//        return $rolesString;
         return array_map(function (Role $role){ return $role->getName();},$this->roles->toArray());
     }
 
@@ -193,6 +194,24 @@ class User implements UserInterface
     public function addRole(Role $role)
     {
         $this->roles->add($role);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getSupportTickets(): ArrayCollection
+    {
+        return $this->supportTickets;
+    }
+
+    /**
+     * @param SupportTicket $supportTickets
+     * @return User
+     */
+    public function addSupportTickets(SupportTicket $supportTickets)
+    {
+        $this->supportTickets[] = $supportTickets;
+        return $this;
     }
 }
 

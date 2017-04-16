@@ -9,16 +9,29 @@
         <h1 class="text-center">Support</h1>
         <h3 class="text-center">Write and Submit your ticket</h3>
         <div class="col-md-4 col-md-offset-4">
-            <form action="" method="post">
-                <input title="" class="form-control" type="text"><br>
-                <textarea title="" rows="4" cols="50" class="form-control"></textarea><br>
+            {{ form_start(supportForm) }}
 
-                <div class="text-center">
-                    <button class="btn btn-primary" type="button">Submit your ticket</button>
-                    <button class="btn btn-danger" type="button">Cancel</button>
-                </div>
+            {#Print row by row each form item, adding some labels#}
+            {{ form_row(supportForm.title, {
+                'label': 'Ticket Title'
+            })  }}
 
-            </form>
+            {{ form_row(supportForm.description, {
+                'label': 'Discribe the problem you have encountered',
+                'label_attr': {'col': '30'}
+            })  }}
+
+            {{ form_row(supportForm.type, {
+                'label': 'Ticket Type'
+            })  }}
+
+            {{ form_row(supportForm._token) }}
+
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit your ticket</button>
+                <button class="btn btn-danger" type="button" href="{{ path('home') }}">Cancel</button>
+            </div>
+            {{ form_end(supportForm) }}
         </div>
     </div>
 {% endblock %}

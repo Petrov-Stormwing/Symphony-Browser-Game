@@ -21,6 +21,6 @@ class SecurityController extends Controller
      */
     public function logout()
     {
-//        TODO: notification you are loged out!
+        return $this->addFlash('success', 'You have logged out');
     }
 }

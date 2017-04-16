@@ -6,6 +6,12 @@
 
 {% block main %}
 
+    {% for message in app.session.flashBag.get('success') %}
+        <div class="alert alert-success">
+            <strong>{{ message }}</strong>
+        </div>
+    {% endfor %}
+
     <div>
         {#Title#}
         <h1> Log In</h1>
