@@ -40,7 +40,7 @@ class User implements UserInterface
 
     /**
      * @var string
-     * @Assert\NotBlank()
+     * @Assert\Email()
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;

@@ -53,7 +53,7 @@ class AccountController extends Controller
             $em->persist($user);
             $em->flush();
 
-            $this->addFlash('success', 'Ticket has been sent successfully');
+            $this->addFlash('success', 'Registration Successful!');
 
             return $this->redirectToRoute('home');
 
