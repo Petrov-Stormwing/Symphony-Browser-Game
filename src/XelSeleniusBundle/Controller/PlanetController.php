@@ -14,6 +14,6 @@ class PlanetController extends Controller
     */
     public function PlanetOverview()
     {
-        return $this->render('planet/overview.html.twig');
+        return $this->render('universe/planet/overview.html.twig');
     }
 }

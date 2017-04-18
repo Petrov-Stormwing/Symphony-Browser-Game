@@ -12,6 +12,6 @@ class BuildingsController extends Controller
      */
     public function buildingsOverview()
     {
-        return $this->render('planet/buildings.html.twig');
+        return $this->render('universe/planet/buildings.html.twig');
     }
 }

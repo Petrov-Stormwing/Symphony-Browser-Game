@@ -12,7 +12,7 @@ class ShipsController extends Controller
      */
     public function shipyardOverview()
     {
-        return $this->render('planet/shipyard.html.twig');
+        return $this->render('universe/planet/shipyard.html.twig');
     }
 
     /**
@@ -20,6 +20,6 @@ class ShipsController extends Controller
      */
     public function fleetOverview()
     {
-        return $this->render('planet/fleet.html.twig');
+        return $this->render('universe/planet/fleet.html.twig');
     }
 }
