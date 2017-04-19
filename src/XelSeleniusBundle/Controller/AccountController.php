@@ -37,7 +37,7 @@ class AccountController extends Controller
         $form = $this->createForm(UserRegistration::class, $user);
         $form->handleRequest($request);
         $encoder = $this->get('security.password_encoder');
-        if ($form->isSubmitted()) {
+        if ($form->isValid()) {
             //Encrypting password
             $encryptedPassword = $encoder->encodePassword(
                 $user,
@@ -58,7 +58,7 @@ class AccountController extends Controller
             return $this->redirectToRoute('home');
 
         }
-        return $this->render('authentication/register.html.twig');
+        return $this->render('authentication/register.html.twig', ['form' => $form->createView()]);
     }
 
     /**

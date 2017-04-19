@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Planet
  *
  * @ORM\Table(name="planets")
- * @ORM\Entity(repositoryClass="XelSeleniusBundle\Repository\PlanetsRepository")
+ * @ORM\Entity(repositoryClass="XelSeleniusBundle\Repository\PlanetRepository")
  */
 class Planet
 {
@@ -20,20 +20,6 @@ class Planet
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="atmosphere", type="string", length=255)
-     */
-    private $atmosphere;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="temperature", type="integer")
-     */
-    private $temperature;
 
     /**
      * @var int
@@ -70,6 +56,8 @@ class Planet
      */
     private $yield;
 
+    private $coordinates;
+
     /**
      * Get id
      *
@@ -78,30 +66,6 @@ class Planet
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set atmosphere
-     *
-     * @param string $atmosphere
-     *
-     * @return Planet
-     */
-    public function setAtmosphere($atmosphere)
-    {
-        $this->atmosphere = $atmosphere;
-
-        return $this;
-    }
-
-    /**
-     * Get atmosphere
-     *
-     * @return string
-     */
-    public function getAtmosphere()
-    {
-        return $this->atmosphere;
     }
 
     /**
@@ -174,6 +138,54 @@ class Planet
     public function getShips()
     {
         return $this->ships;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStorage(): array
+    {
+        return $this->storage;
+    }
+
+    /**
+     * @param array $storage
+     */
+    public function setStorage(array $storage)
+    {
+        $this->storage = $storage;
+    }
+
+    /**
+     * @return array
+     */
+    public function getYield(): array
+    {
+        return $this->yield;
+    }
+
+    /**
+     * @param array $yield
+     */
+    public function setYield(array $yield)
+    {
+        $this->yield = $yield;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCoordinates()
+    {
+        return $this->coordinates;
+    }
+
+    /**
+     * @param mixed $coordinates
+     */
+    public function setCoordinates($coordinates)
+    {
+        $this->coordinates = $coordinates;
     }
 }
 

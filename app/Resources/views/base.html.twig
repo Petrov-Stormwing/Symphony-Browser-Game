@@ -64,8 +64,13 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ path('map_view') }}" class="navbar-brand">
+                                Galaxy Map
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ path('overview') }}" class="navbar-brand">
-                                Overview
+                                Planet Overview
                             </a>
                         </li>
                         <li>
@@ -107,7 +112,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ path('logout') }}" class="navbar-brand">
+                            <a href="{{ path('logoutNotify') }}" class="navbar-brand">
                                 Logout
                             </a>
                         </li>
@@ -126,10 +131,10 @@
     {% endblock %}
 </main>
 
-<footer id="footer">
+<footer id="footer noSpaces">
 {% block footer %}
 
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse" id="noSpaces">
             <div class="container-fluid">
 
                 <!--Logo-->

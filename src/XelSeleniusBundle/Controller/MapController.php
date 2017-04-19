@@ -11,8 +11,13 @@ class MapController extends Controller
      * @Route("/map",name="map_view")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction()
+    public function mapView()
     {
         return $this->render('universe/universe.html.twig');
+    }
+
+    public function mapDynamics()
+    {
+//        TODO: add users to planets and set coordinates
     }
 }
