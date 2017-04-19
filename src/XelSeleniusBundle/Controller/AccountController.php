@@ -8,12 +8,57 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
 use Symfony\Component\HttpFoundation\Request;
+use XelSeleniusBundle\Entity\Planet;
 use XelSeleniusBundle\Entity\Role;
 use XelSeleniusBundle\Entity\User;
 use XelSeleniusBundle\Form\UserRegistration;
 
 class AccountController extends Controller
 {
+    private function planetGenerator($user)
+    {
+        $planet=new Planet();
+        $planet->setSize(intval(rand(6000,32000)));
+
+        $planet->setBuildings(implode(array(
+            'Mining Facility' =>0,
+            'Hydrogen Extractor' =>0,
+            'Shipyard' =>0,
+            'Minerals Storage'=>0,
+            'Hydrogen Tanks'=>0
+        ),','));
+
+        $planet->setShips(implode(array(
+            'Fighter' =>0,
+            'Cruiser'=>0,
+            'Battleship' =>0,
+        ),','));
+
+        $planet->setStorage(implode(array(
+            'Minerals Storage' => 10000,
+            'Hydrogen Tanks' => 10000
+        ),','));
+
+        $planet->setYield(implode(array(
+            'Minerals_per_hour'=>100,
+            'Hydrogen_per_hour'=>100
+        ),','));
+
+        $planet->setCoordinates(implode(array(
+            'x'=>rand(0,20),
+            'y'=>rand(0,20)
+        ),','));
+
+        $planet->setUser($user);
+
+        //Persist into Database
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($planet);
+        $em->flush();
+
+        return $planet;
+    }
+
     /**
      * @Route("/register", name="user_register_form")
      * @Method("GET")
@@ -49,9 +94,14 @@ class AccountController extends Controller
             $userRole=$this->getDoctrine()->getRepository(Role::class)
                 ->findOneBy(['name'=>'ROLE_USER']);
             $user->addRole($userRole);
+
+            //Persist into Database
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
+            //set User's Planet
+            $user->setPlanet($this->planetGenerator($user));
 
             $this->addFlash('success', 'Registration Successful!');
 

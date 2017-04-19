@@ -43,7 +43,7 @@ class Planet
     private $ships;
 
     /**
-     * @var array
+     * @var string
      *
      * @ORM\Column(name="storage", type="array")
      */
@@ -56,7 +56,26 @@ class Planet
      */
     private $yield;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="coordinates", type="array")
+     */
     private $coordinates;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="user_id", type="integer")
+     */
+    private $userId;
+
+    /**
+     * @var User
+     * @ORM\ManyToOne(targetEntity="XelSeleniusBundle\Entity\User", inversedBy="planets")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     /**
      * Get id
@@ -141,17 +160,17 @@ class Planet
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getStorage(): array
+    public function getStorage()
     {
         return $this->storage;
     }
 
     /**
-     * @param array $storage
+     * @param string $storage
      */
-    public function setStorage(array $storage)
+    public function setStorage($storage)
     {
         $this->storage = $storage;
     }
@@ -159,7 +178,7 @@ class Planet
     /**
      * @return array
      */
-    public function getYield(): array
+    public function getYield()
     {
         return $this->yield;
     }
@@ -167,7 +186,7 @@ class Planet
     /**
      * @param array $yield
      */
-    public function setYield(array $yield)
+    public function setYield($yield)
     {
         $this->yield = $yield;
     }
@@ -186,6 +205,48 @@ class Planet
     public function setCoordinates($coordinates)
     {
         $this->coordinates = $coordinates;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * Set userId
+     *
+     * @param integer $userId
+     *
+     * @return Planet
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     * @return Planet
+     */
+    public function setUser(User $user=null)
+    {
+        $this->user = $user;
+        return $this;
     }
 }
 

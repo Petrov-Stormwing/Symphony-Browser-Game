@@ -102,7 +102,7 @@ class SupportTicket
      */
     public function getUserId()
     {
-        $this->userId;
+        return $this->userId;
     }
 
     /**

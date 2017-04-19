@@ -59,10 +59,18 @@ class User implements UserInterface
      */
     private $supportTickets;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="XelSeleniusBundle\Entity\Planet", mappedBy="user")
+     */
+    private $planets;
+
     public function __construct()
     {
         $this->roles=new ArrayCollection();
         $this->supportTickets=new ArrayCollection();
+        $this->planets=new ArrayCollection();
     }
 
     /**
@@ -211,6 +219,24 @@ class User implements UserInterface
     public function addSupportTickets(SupportTicket $supportTickets)
     {
         $this->supportTickets[] = $supportTickets;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPlanet(): ArrayCollection
+    {
+        return $this->planets;
+    }
+
+    /**
+     * @param Planet $planets
+     * @return User
+     */
+    public function setPlanet($planets)
+    {
+        $this->planets = $planets;
         return $this;
     }
 }
