@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block main %}
-    {% for row=0,row<=10, row++ %}
-        {% for col=0,col<=10, col++ %}
-            {#TODO: ask for php template psibility with twig and more exactly how could it be done#}
-            {#TODO: key=>value matrix, where you should check data for has planet, has no planet. could be true/false #}
-        {% endfor %}
-    {% endfor %}
-
+    <table>
+        {#{% for coordinates in planet_matrix %}#}
+            {#<tr>#}
+                {#{{ coordinates }}#}
+            {#</tr>#}
+        {#{% endfor %}#}
+    </table>
 {% endblock %}

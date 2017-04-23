@@ -2,6 +2,7 @@
 
 namespace XelSeleniusBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,16 +32,16 @@ class Planet
     /**
      * @var array
      *
-     * @ORM\Column(name="buildings", type="array")
-     */
-    private $buildings;
-
-    /**
-     * @var array
-     *
      * @ORM\Column(name="ships", type="array")
      */
     private $ships;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="buildings_level", type="array")
+     */
+    private $buildings_level;
 
     /**
      * @var string
@@ -59,7 +60,7 @@ class Planet
     /**
      * @var array
      *
-     * @ORM\Column(name="coordinates", type="array")
+     * @ORM\Column(name="coordinates", type="string", length=255, unique=true)
      */
     private $coordinates;
 
@@ -76,6 +77,13 @@ class Planet
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="XelSeleniusBundle\Entity\Buildings", mappedBy="planet")
+     */
+    private $buildings;
 
     /**
      * Get id
@@ -128,7 +136,7 @@ class Planet
     /**
      * Get buildings
      *
-     * @return array
+     * @return ArrayCollection
      */
     public function getBuildings()
     {
@@ -247,6 +255,22 @@ class Planet
     {
         $this->user = $user;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBuildingsLevel(): string
+    {
+        return $this->buildings_level;
+    }
+
+    /**
+     * @param string $buildings_level
+     */
+    public function setBuildingsLevel(string $buildings_level)
+    {
+        $this->buildings_level = $buildings_level;
     }
 }
 

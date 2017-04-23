@@ -1,9 +1,41 @@
 {% extends "base.html.twig" %}
 
 {% block main %}
-    <div class="container">
-        <div class="col-md-4 col-md-offset-4">
-                <h1 class="col-md-4 col-md-offset-4">Xel'Naga</h1>
+    <div class="container body-content">
+        <div class="row">
+            <h1 id="text-center">Xel'Naga</h1>
+
+            <table id="text-center" style="width:100%" border="1">
+                <tr id="text-center">
+                    <th>Picture</th>
+                    <th>Amount</th>
+                    <th>Name</th>
+                    <th>Minerals</th>
+                    <th>Hydrogen</th>
+                    <th>Time left</th>
+                    <th>Status</th>
+                </tr>
+                {#TODO:Make some space#}
+                <tr>
+                    <td><img src="{{ asset('img/nk11_1.jpg') }}"></td>
+                    <td>0</td>
+                    <td>Fighter</td>
+                    <td>94</td>
+                    <td>45</td>
+                    <td>30s</td>
+                    <td>In Construction</td>
+                </tr>
+                {#TODO:Make some space#}
+                <tr>
+                    <td><img src="{{ asset('img/bs11.jpg') }}"></td>
+                    <td>0</td>
+                    <td>Shipyard</td>
+                    <td>94</td>
+                    <td>45</td>
+                    <td>30s</td>
+                    <td>In Construction</td>
+                </tr>
+            </table>
         </div>
     </div>
 {% endblock %}

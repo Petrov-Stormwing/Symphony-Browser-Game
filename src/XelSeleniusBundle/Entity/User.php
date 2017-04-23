@@ -68,9 +68,9 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->roles=new ArrayCollection();
-        $this->supportTickets=new ArrayCollection();
-        $this->planets=new ArrayCollection();
+        $this->roles = new ArrayCollection();
+        $this->supportTickets = new ArrayCollection();
+        $this->planets = new ArrayCollection();
     }
 
     /**
@@ -173,7 +173,9 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return array_map(function (Role $role){ return $role->getName();},$this->roles->toArray());
+        return array_map(function (Role $role) {
+            return $role->getName();
+        }, $this->roles->toArray());
     }
 
     /**
