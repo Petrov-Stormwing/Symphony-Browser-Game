@@ -3,17 +3,15 @@
 namespace XelSeleniusBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Security\Core\User\User;
-use XelSeleniusBundle\Entity\Planet;
-use XelSeleniusBundle\XelSeleniusBundle;
-
 
 class MapController extends Controller
 {
     /**
      * @Route("/map",name="map_view")
      * @return \Symfony\Component\HttpFoundation\Response
+     * @Security("has_role('ROLE_USER')")
      */
     public function mapView()
     {
