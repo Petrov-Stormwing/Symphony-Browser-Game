@@ -12,6 +12,17 @@ class BuildingsController extends Controller
      */
     public function buildingsOverview()
     {
-        return $this->render('universe/planet/buildings.html.twig');
+        //Displays the current resources from the current planet.
+        $planet = $this->getDoctrine()->getRepository('XelSeleniusBundle:Planet')
+            ->findOneBy(['user' => $this->getUser()]);
+
+        $storage=$planet->getStorage();
+
+        $decodedStorage=json_decode($storage,true);
+        $minerals=intval($decodedStorage['Minerals_Storage']);
+        $hydrogen=intval($decodedStorage['Hydrogen_Tanks']);
+
+        return $this->render('universe/planet/buildings.html.twig',
+            ['Minerals'=>$minerals, 'Hydrogen'=>$hydrogen]);
     }
 }

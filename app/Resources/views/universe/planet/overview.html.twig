@@ -2,10 +2,18 @@
 
 {% block main %}
     <div class="container body-content">
+
+        <div id="text-center">
+            <img src="{{ asset('img/f1.gif') }}">
+            {{ Minerals }}
+            <img src="{{ asset('img/f2.gif') }}">
+            {{ Hydrogen }}
+        </div>
+
         <div class="row">
             <table id="text-center" style="width:100%" border="1">
                 <tr id="text-center">
-                    <th>Picture</th>
+                    <th>Shipyard</th>
                     <th>Amount</th>
                     <th>Name</th>
                     <th>Minerals</th>
@@ -13,7 +21,7 @@
                     <th>Time left</th>
                     <th>Status</th>
                 </tr>
-                {#TODO:Make some space#}
+
                 <tr>
                     <td><img src="{{ asset('img/nk11_1.jpg') }}"></td>
                     <td>0</td>
@@ -23,7 +31,19 @@
                     <td>30s</td>
                     <td>In Construction</td>
                 </tr>
-                {#TODO:Make some space#}
+            </table>
+            <br/>
+            <table id="text-center" style="width:100%" border="1">
+                <tr id="text-center">
+                    <th>Buildings</th>
+                    <th>Level</th>
+                    <th>Name</th>
+                    <th>Minerals</th>
+                    <th>Hydrogen</th>
+                    <th>Time left</th>
+                    <th>Status</th>
+                </tr>
+
                 <tr>
                     <td><img src="{{ asset('img/bs11.jpg') }}"></td>
                     <td>0</td>
@@ -34,6 +54,7 @@
                     <td>In Construction</td>
                 </tr>
             </table>
+
         </div>
     </div>
 {% endblock %}

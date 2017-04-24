@@ -22,8 +22,8 @@ class AccountController extends Controller
         $planet->setBuildingsLevel(
             json_encode(
                 array(
-                    'Mining Facility' => 0,
-                    'Hydrogen Extractor' => 0,
+                    'Mining_Facility' => 0,
+                    'Hydrogen_Extractor' => 0,
                     'Shipyard' => 0,
                 )
             )
@@ -44,8 +44,8 @@ class AccountController extends Controller
         $planet->setStorage(
             json_encode(
                 array(
-                    'Minerals Storage' => 10000,
-                    'Hydrogen Tanks' => 10000
+                    'Minerals_Storage' => 1000,
+                    'Hydrogen_Tanks' => 500
                 )
             )
         );
@@ -53,8 +53,8 @@ class AccountController extends Controller
         $planet->setYield(
             json_encode(
                 array(
-                    'Minerals_per_hour' => 100,
-                    'Hydrogen_per_hour' => 100
+                    'Minerals_per_hour' => 10,
+                    'Hydrogen_per_hour' => 5
                 )
             )
         );
