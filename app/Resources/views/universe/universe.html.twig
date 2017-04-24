@@ -5,11 +5,27 @@
 {% endblock %}
 
 {% block main %}
-    <table>
-        {#{% for coordinates in planet_matrix %}#}
-            {#<tr>#}
-                {#{{ coordinates }}#}
-            {#</tr>#}
-        {#{% endfor %}#}
-    </table>
+    <div class="container">
+        <div class="col-md-2 col-md-offset-2">
+            <table border="1">
+                {% for x,coordinates in planet_matrix %}
+                    <tr>
+                        {% for y,planet in coordinates %}
+                            <td id="map_planet">
+                                {% if planet == null %}
+                                    <img src="{{ asset('img/bg1.jpg') }}" id="map_planet">
+                                {% else %}
+                                    {% if planet.user == user %}
+                                        <a href="{{ path('overview') }}"><img src="{{ asset('img/str1.png') }}" id="map_planet"></a>
+                                    {% else %}
+                                        <a href="{{ path('campaign') }}"><img src="{{ asset('img/str2.png') }}" id="map_planet"></a>
+                                    {% endif %}
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 {% endblock %}
