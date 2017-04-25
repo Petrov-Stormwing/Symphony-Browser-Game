@@ -27,6 +27,7 @@ class SecurityController extends Controller
     /**
      * @Route("/logoutNotify",name="logoutNotify")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
      */
     public function logoutNotify(){
         $this->addFlash('success', 'You have logged out');

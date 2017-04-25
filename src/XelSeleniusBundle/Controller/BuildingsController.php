@@ -3,12 +3,14 @@
 namespace XelSeleniusBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BuildingsController extends Controller
 {
     /**
      * @Route("buildings",name="buildings")
+     * @Security("has_role('ROLE_USER')")
      */
     public function buildingsOverview()
     {
@@ -17,7 +19,10 @@ class BuildingsController extends Controller
             ->findOneBy(['user' => $this->getUser()]);
 
         $storage=$planet->getStorage();
+        $buildings=$planet->getBuildings();
 
+        var_dump($buildings);
+        exit;
         $decodedStorage=json_decode($storage,true);
         $minerals=intval($decodedStorage['Minerals_Storage']);
         $hydrogen=intval($decodedStorage['Hydrogen_Tanks']);
