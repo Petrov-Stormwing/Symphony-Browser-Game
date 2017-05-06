@@ -21,8 +21,6 @@ class BuildingsController extends Controller
         $storage=$planet->getStorage();
         $buildings=$planet->getBuildings();
 
-        var_dump($buildings);
-        exit;
         $decodedStorage=json_decode($storage,true);
         $minerals=intval($decodedStorage['Minerals_Storage']);
         $hydrogen=intval($decodedStorage['Hydrogen_Tanks']);

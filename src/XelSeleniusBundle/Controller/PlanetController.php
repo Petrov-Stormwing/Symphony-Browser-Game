@@ -5,7 +5,7 @@ namespace XelSeleniusBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use XelSeleniusBundle\Entity\Buildings;
+use XelSeleniusBundle\Entity\Building;
 use XelSeleniusBundle\Entity\Planet;
 
 class PlanetController extends Controller
@@ -33,15 +33,15 @@ class PlanetController extends Controller
         //switch to get the hardcoded values -> to be upgraded in future
         switch ($buildings_assoc['Mining_Facility']){
             case 0:$yield_assoc['Minerals_per_hour']=50;break;
-            case 1:$yield_assoc['Minerals_per_hour']=50+Buildings::MINING_FACILITY_LEVEL_1[3];break;
-            case 2:$yield_assoc['Minerals_per_hour']=50+Buildings::MINING_FACILITY_LEVEL_2[3];break;
-            case 3:$yield_assoc['Minerals_per_hour']=50+Buildings::MINING_FACILITY_LEVEL_3[3];break;
+            case 1:$yield_assoc['Minerals_per_hour']=50+Building::MINING_FACILITY_LEVEL_1[3];break;
+            case 2:$yield_assoc['Minerals_per_hour']=50+Building::MINING_FACILITY_LEVEL_2[3];break;
+            case 3:$yield_assoc['Minerals_per_hour']=50+Building::MINING_FACILITY_LEVEL_3[3];break;
         }
         switch ($buildings_assoc['Hydrogen_Extractor']){
             case 0:$yield_assoc['Hydrogen_per_hour']=25;break;
-            case 1:$yield_assoc['Hydrogen_per_hour']=25+Buildings::HYDROGEN_EXTRACTOR_LEVEL_1[3];break;
-            case 2:$yield_assoc['Hydrogen_per_hour']=25+Buildings::HYDROGEN_EXTRACTOR_LEVEL_2[3];break;
-            case 3:$yield_assoc['Hydrogen_per_hour']=25+Buildings::HYDROGEN_EXTRACTOR_LEVEL_3[3];break;
+            case 1:$yield_assoc['Hydrogen_per_hour']=25+Building::HYDROGEN_EXTRACTOR_LEVEL_1[3];break;
+            case 2:$yield_assoc['Hydrogen_per_hour']=25+Building::HYDROGEN_EXTRACTOR_LEVEL_2[3];break;
+            case 3:$yield_assoc['Hydrogen_per_hour']=25+Building::HYDROGEN_EXTRACTOR_LEVEL_3[3];break;
         }
 
         //encode and return the data.

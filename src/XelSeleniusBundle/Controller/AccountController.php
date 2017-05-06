@@ -13,6 +13,8 @@ use XelSeleniusBundle\Form\UserRegistration;
 
 class AccountController extends Controller
 {
+
+
     private function planetGenerator($user)
     {
         $planet = new Planet();
@@ -29,6 +31,7 @@ class AccountController extends Controller
             )
         );
 
+//        $planet->setBuildings($this->generatePlanterBuildings($planet));
         $planet->setShips(
             json_encode(
                 array(

@@ -5,12 +5,12 @@ namespace XelSeleniusBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Buildings
+ * Building
  *
  * @ORM\Table(name="buildings")
  * @ORM\Entity(repositoryClass="XelSeleniusBundle\Repository\BuildingsRepository")
  */
-class Buildings
+class Building
 {
     //VALUES FOR BUILDINGS AS FOLLOWS:
     //[LEVEL,MINERALS,HYDROGEN,YIELD,TIME(IN SECONDS)]
@@ -43,8 +43,8 @@ class Buildings
     private $typeId;
 
     /**
-     * @var Buildings_Type
-     * @ORM\ManyToOne(targetEntity="XelSeleniusBundle\Entity\Buildings_Type", inversedBy="buildings")
+     * @var Building_Type
+     * @ORM\ManyToOne(targetEntity="Building_Type", inversedBy="buildings")
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
     private $type;
@@ -71,16 +71,16 @@ class Buildings
     private $reqHydrogen;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="req_time", type="time")
+     * @ORM\Column(name="req_time", type="string")
      */
     private $reqTime;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="finished_on", type="datetime")
+     * @ORM\Column(name="finished_on", type="string")
      */
     private $finishedOn;
 
@@ -109,35 +109,11 @@ class Buildings
     }
 
     /**
-     * Set type
-     *
-     * @param integer $type
-     *
-     * @return Buildings
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return Buildings_Type
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
      * Set reqMinerals
      *
      * @param integer $reqMinerals
      *
-     * @return Buildings
+     * @return Building
      */
     public function setReqMinerals($reqMinerals)
     {
@@ -161,7 +137,7 @@ class Buildings
      *
      * @param integer $reqHydrogen
      *
-     * @return Buildings
+     * @return Building
      */
     public function setReqHydrogen($reqHydrogen)
     {
@@ -183,9 +159,9 @@ class Buildings
     /**
      * Set reqTime
      *
-     * @param \DateTime $reqTime
+     * @param \string $reqTime
      *
-     * @return Buildings
+     * @return Building
      */
     public function setReqTime($reqTime)
     {
@@ -197,7 +173,7 @@ class Buildings
     /**
      * Get reqTime
      *
-     * @return \DateTime
+     * @return \string
      */
     public function getReqTime()
     {
@@ -207,9 +183,9 @@ class Buildings
     /**
      * Set finishedOn
      *
-     * @param \DateTime $finishedOn
+     * @param string $finishedOn
      *
-     * @return Buildings
+     * @return Building
      */
     public function setFinishedOn($finishedOn)
     {
@@ -221,7 +197,7 @@ class Buildings
     /**
      * Get finishedOn
      *
-     * @return \DateTime
+     * @return string
      */
     public function getFinishedOn()
     {
@@ -242,22 +218,6 @@ class Buildings
     public function setPlanetId(int $planetId)
     {
         $this->planetId = $planetId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTypeId(): int
-    {
-        return $this->typeId;
-    }
-
-    /**
-     * @param int $type_id
-     */
-    public function setTypeId(int $typeId)
-    {
-        $this->typeId = $typeId;
     }
 
     /**
@@ -290,6 +250,38 @@ class Buildings
     public function setLevel(int $level)
     {
         $this->level = $level;
+    }
+
+    /**
+     * @return Building_Type
+     */
+    public function getType(): Building_Type
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param Building_Type $type
+     */
+    public function setType(Building_Type $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTypeId(): int
+    {
+        return $this->typeId;
+    }
+
+    /**
+     * @param int $typeId
+     */
+    public function setTypeId(int $typeId)
+    {
+        $this->typeId = $typeId;
     }
 }
 

@@ -81,7 +81,7 @@ class Planet
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="XelSeleniusBundle\Entity\Buildings", mappedBy="planet")
+     * @ORM\OneToMany(targetEntity="Building", mappedBy="planet")
      */
     private $buildings;
 
